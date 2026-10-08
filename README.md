@@ -1,2 +1,2 @@
 # Orion
-Terminal search for public people-search links, profile APIs, image metadata, and contact details from one website.
+Terminal based OSINT search. Still a work in progress.
