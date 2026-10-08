@@ -6,6 +6,7 @@ import os
 import sys
 import time
 
+from rich.table import Table
 from rich.text import Text
 from rich.theme import Theme
 
@@ -180,12 +181,16 @@ def logo() -> Text:
     return text
 
 
-def wordmark() -> Text:
-    text = Text()
-    text.append(" ORION ", style=BADGE)
-    text.append(" PUBLIC SOURCE MESH ", style=TEXT)
-    text.append(" v1.0 ", style=BADGE_ACCENT)
-    return text
+def wordmark() -> Table:
+    left = Text()
+    left.append(" ORION ", style=BADGE)
+    left.append(" PUBLIC SOURCE MESH ", style=TEXT)
+    left.append(" v1.0 ", style=BADGE_ACCENT)
+    line = Table.grid(expand=True, padding=(0, 1))
+    line.add_column(justify="left", ratio=1)
+    line.add_column(justify="right", no_wrap=True)
+    line.add_row(left, Text("mvster_p", style=ACCENT))
+    return line
 
 
 def status_style(status: str) -> str:

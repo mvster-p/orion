@@ -359,6 +359,7 @@ def self_test(console) -> int:
     )
     exported = preview.export_text()
     check("render wordmark", "ORION" in exported and "PUBLIC SOURCE MESH" in exported)
+    check("render owner", any("v1.0" in line and line.rstrip().endswith("mvster_p") for line in exported.splitlines()))
     check("render core source", "ThatsThem" in exported and "TruePeopleSearch" in exported)
     check("render gauge", "█" in exported or "#" in exported)
     check("markdown", "Grace Hopper" in to_markdown(name_result) and "https://" in to_markdown(name_result))
